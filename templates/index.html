@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- adding bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- adding style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/page1' %}active{% endif %}" aria-current="{% if request.path == '/page1' %}page{% endif %}" href="{{ url_for('page1') }}">page1</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/page2' %}active{% endif %}" href="{{ url_for('page2') }}" aria-current="{% if request.path == '/page2' %}page{% endif %}">page2</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <!-- sidebar -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <h5 class="mt-4">Views</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="loadVisual1()">Visual 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Visual 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Visual 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="main-content" id="main-content">
+                <h2>Welcome to the Baseball Dashboard</h2>
+                <p>Select a visual from the sidebar to display it here.</p>
+                <div id="visual-content"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- d3 scripts -->
+    <script src="{{ url_for('static', filename='js/d3/d3.v5.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/d3/d3-dsv.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/d3/topojson.v2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/d3/d3-tip.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/d3/d3-legend.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/visual1.js') }}"></script>
+    
+    <!-- JavaScript to Load Visuals -->
+    <script>
+        function loadVisual1() {
+            // Use fetch to load the content from /visual1
+            fetch('/visual1')
+                .then(response => response.text())
+                .then(html => {
+                    // Replace the contents of #visual-content with the loaded HTML
+                    document.getElementById('visual-content').innerHTML = html;
+
+                    initializeD3Visual1();
+                })
+                .catch(error => console.error('Error loading the visual:', error));
+        }
+
+    </script>
+    
+    <!-- bootstrap bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

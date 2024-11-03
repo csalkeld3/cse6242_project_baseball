@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <style>
+        /* define CSS rules here */
+    </style>
+    <title>
+        The Slacktivists(team #195)
+    </title>
+</head>
+
+<body>
+    <!-- Create dropdown elements here -->
+    <select id="player"></select>
+    <select id="stat"></select>
+    <svg id="board"></svg>
+
+    <text>The Slactivists(#195)</text>
+
+    <!-- Add heading for the visualization -->
+    <script src="{{ url_for('static', filename='js/d3/d3.v5.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/d3/d3-dsv.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/d3/topojson.v2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/d3/d3-tip.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/d3/d3-legend.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/visual1.js') }}"></script>
+
+</body>
+</html>

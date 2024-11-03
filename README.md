@@ -1,2 +1,19 @@
-# cse6242_project_baseball
-Baseball Analytics Code Repository for CSE 6242
+To run this app:
+
+1. make executable
+
+```
+chmod +x setup.sh
+```
+
+2. run the script
+
+```
+./setup.sh
+```
+
+3. run the app
+
+```
+python app.py
+```

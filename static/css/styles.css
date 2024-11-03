@@ -1,0 +1,49 @@
+/* Reset any unwanted margin or padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #002D72; /* Navy blue background */
+    color: #FFFFFF; /* White text */
+    position: fixed; /* Fix navbar at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure navbar stays on top */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #1E3A5F; /* Darker blue for the sidebar */
+    color: #FFFFFF; /* White text */
+    height: calc(100vh - 56px); /* Full height minus the navbar height */
+    padding-top: 20px;
+    position: fixed; /* Fix the sidebar to the side */
+    left: 0;
+    top: 56px; /* Position the sidebar below the navbar (56px is the default height of a Bootstrap navbar) */
+    width: 250px; /* Fixed width for the sidebar */
+    overflow-y: auto; /* Enable scrolling if content exceeds the height */
+    z-index: 900; /* Ensure sidebar stays below the navbar */
+}
+
+/* Sidebar Link Styles */
+.sidebar .nav-link {
+    color: #FFFFFF; /* White text */
+    font-weight: bold;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #C8102E; /* Red background on hover */
+    color: #FFFFFF;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 250px; /* Offset the content area by the sidebar width */
+    padding: 20px;
+    padding-top: 80px; /* Add padding to account for the navbar height */
+}
