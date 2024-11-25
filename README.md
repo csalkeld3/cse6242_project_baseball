@@ -8,4 +8,6 @@ Using that code, we compressed 700MB raw data into 2.5MB "data_processed.csv".<b
 To see how we constructed analysis model for predicting "Runs per PA", view "PCA_updated_11-22.ipynb".<br>
 The result of modeling is shown on "Result.csv".
 
+For finding players with similar metrics, "Result.csv" contained too massive information.<br>
+Therefore, we focused on 4 advanced metrics from the most recent season for tanimoto coefficient analysis.<br>
 The output csv "player_metrics_most_recent_season.csv" was used to create a graph... Chloe adding more soon
